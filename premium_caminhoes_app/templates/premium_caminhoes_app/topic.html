@@ -1,0 +1,31 @@
+{% extends "premium_caminhoes_app/base.html" %}
+
+{% block title %}Tópico{% endblock %}
+
+{% block content %}
+
+    <p>Tópico: {{ topic }}<p>
+
+    <p>Anotações:</p>
+
+    <p>
+        <a href="{% url 'new_entry' topic.id %}">Adiciona uma nova anotação</a>
+    </p>
+
+    <u1>
+        {% for entry in entries %}
+
+        <li>
+            <p>{{ entry.date_added | date:'M d, Y H:i'}}</p>
+            <p>{{entry.text | linebreaks }}</p>
+            <p>
+                <a href="{% url 'edit_entry' entry.id %}">Editar anotação</a>
+            </p>
+        </li>
+        {% empty %}
+        <li>
+            Não há registro.
+        </li>
+        {% endfor %}
+    </u1>
+{% endblock content %}
