@@ -1,7 +1,39 @@
 {% extends "premium_caminhoes_app/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'premium_caminhoes_app/css/index.css' %}">
+{% endblock %}
 
 {% block title %}Premium Caminhões{% endblock %}
 
 {% block content %}
-    <p>Essa aplicação te ajudará a organizar seus estudos.</p>
+    <div class="top-slider">
+        <!--Radio Buttons-->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <!--End Radio Buttons-->
+
+        <!--Slide images-->
+        <div class="slides-track">
+            <div class="slide">
+                <img src="{% static 'premium_caminhoes_app/img/img1.png' %}" alt="banner da empresa"/>
+            </div>
+            <div class="slide">
+                <img src="{% static 'premium_caminhoes_app/img/img2.webp' %}" alt="banner da empresa"/>
+            </div>
+            <div class="slide">
+                <img src="{% static 'premium_caminhoes_app/img/img3.webp' %}" alt="banner da empresa"/>
+            </div>
+        </div>
+        <!--End Slide images-->
+        <div class="manual-navigation">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+    </div>
 {% endblock content %}
+
+{% block extra_js %}<script src="{% static 'premium_caminhoes_app/js/index.js' %}"></script>{% endblock %}
