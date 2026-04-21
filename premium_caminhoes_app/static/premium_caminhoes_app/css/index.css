@@ -1,0 +1,85 @@
+/* Slider-Top Style */
+.top-slider {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.top-slider input[type="radio"] {
+    display: none;
+}
+
+.slides-track {
+    width: 300%;
+    display: flex;
+    cursor: grab;
+    transition: transform 1s ease-in-out;
+}
+
+.slides-track:active {
+    cursor: grabbing;
+}
+
+.top-slider .slides-track .slide {
+    width: 33.333%;/* 33.333% of 300% */
+    position: relative;
+}
+
+.top-slider .slides-track .slide img {
+    width: 100%;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.top-slider .manual-navigation {
+    position: absolute;
+    width: 100%;
+    bottom: 15%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.manual-navigation .manual-btn {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.manual-navigation .manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-navigation .manual-btn:hover {
+    background-color: white;
+}
+
+/* track animation */
+#radio1:checked ~ .slides-track {
+    transform: translateX(0);
+}
+/* second image */
+#radio2:checked ~ .slides-track {
+    transform: translateX(-33.333%); 
+}
+/* third image */
+#radio3:checked ~ .slides-track {
+    transform: translateX(-66.666%);
+}
+/* end track animation */
+
+/* painting the navigation dots */
+#radio1:checked ~ .manual-navigation label[for="radio1"],
+#radio2:checked ~ .manual-navigation label[for="radio2"],
+#radio3:checked ~ .manual-navigation label[for="radio3"] {
+    background-color: white;
+}
+/* End Slider-Top Style */
